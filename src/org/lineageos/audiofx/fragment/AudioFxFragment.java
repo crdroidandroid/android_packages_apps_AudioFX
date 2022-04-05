@@ -306,6 +306,7 @@ public class AudioFxFragment extends Fragment implements StateCallbacks.DeviceCh
         List<AudioDeviceInfo> bluetoothDevices = mConfig.getConnectedDevices(
                 AudioDeviceInfo.TYPE_BLUETOOTH_A2DP);
         for (AudioDeviceInfo ai : bluetoothDevices) {
+            if (ai == null) continue;
             int viewId = View.generateViewId();
             MenuItem item = mMenuDevices.getSubMenu().add(R.id.devices, viewId,
                     Menu.NONE, MasterConfigControl.getDeviceDisplayString(getActivity(), ai));
@@ -320,6 +321,7 @@ public class AudioFxFragment extends Fragment implements StateCallbacks.DeviceCh
                 AudioDeviceInfo.TYPE_USB_ACCESSORY, AudioDeviceInfo.TYPE_USB_DEVICE,
                 AudioDeviceInfo.TYPE_USB_HEADSET);
         for (AudioDeviceInfo ai : usbDevices) {
+            if (ai == null) continue;
             int viewId = View.generateViewId();
             MenuItem item = mMenuDevices.getSubMenu().add(R.id.devices, viewId,
                     Menu.NONE, MasterConfigControl.getDeviceDisplayString(getActivity(), ai));
